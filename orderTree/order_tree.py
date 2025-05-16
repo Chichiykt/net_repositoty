@@ -1,5 +1,5 @@
+import time
 from typing import List
-
 from tree import Node, create_tree
 
 
@@ -121,18 +121,38 @@ def levelorder2(head: Node):
 if __name__ == '__main__':
     head = create_tree()
     result = []
+    begin = time.perf_counter()
     preorder1(head, result)
-    print(result)
-    print(preorder2(head))
+    end = time.perf_counter()
+    print('递归先序遍历：', result, '用时', end - begin, sep=' ')
+    begin = time.perf_counter()
+    result = preorder2(head)
+    end = time.perf_counter()
+    print('迭代先序遍历：', result, '用时', end - begin, sep=' ')
     result = []
+    begin = time.perf_counter()
     inorder1(head, result)
-    print(result)
-    print(inorder2(head))
+    end = time.perf_counter()
+    print('递归中序遍历：', result, '用时', end - begin, sep=' ')
+    begin = time.perf_counter()
+    result = inorder2(head)
+    end = time.perf_counter()
+    print('迭代中序遍历：', result, '用时', end - begin, sep=' ')
     result = []
+    begin = time.perf_counter()
     postorder1(head, result)
-    print(result)
-    print(postorder2(head))
+    end = time.perf_counter()
+    print('递归后序遍历：', result, '用时', end - begin, sep=' ')
+    begin = time.perf_counter()
+    result = postorder2(head)
+    end = time.perf_counter()
+    print('迭代后序遍历：', result, '用时', end - begin, sep=' ')
     result = []
+    begin = time.perf_counter()
     levelorder1([head], result)
-    print(result)
-    print(levelorder2(head))
+    end = time.perf_counter()
+    print('递归层次遍历：', result, '用时', end - begin, sep=' ')
+    begin = time.perf_counter()
+    result = levelorder2(head)
+    end = time.perf_counter()
+    print('迭代层次遍历：', result, '用时', end - begin, sep=' ')
